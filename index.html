@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Demon slayer</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<style>
+		*{margin: 0;padding: 0}
+		video{
+			width: 100%;
+			position: absolute;
+		}
+		img{
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+		}
+		@keyframes fore1{
+			from{
+				right: -100%;
+			}
+			to{
+				right: 0;
+				rotate: 0deg;
+			}
+		}
+		@font-face{
+			src: url('f1.ttf');
+			font-family: f1;
+		}
+		h1{
+			font-family: f1;
+			margin-bottom: 3vw;
+		}
+		@keyframes float{
+			0%{
+				transform: translateY(0px);
+			}
+			50%{
+				transform: translateY(-50px);	
+			}
+			100%{
+				transform: translateY(0px);	
+			}
+
+		}
+		.show{
+			display: block !important;
+		}
+		@keyframes fadee{
+			from{
+				filter: brightness(0);
+			}
+			to{
+				filter: brightness(1);
+			}
+		}
+		@keyframes up{
+			from{
+				transform: translateY(100%);
+			}
+			to{
+				transform: translateY(0);
+			}
+		}
+		@keyframes scalback{
+			0%{
+				scale: 1;
+			}
+			50%{
+				scale: 1.3;
+				filter: blur(10px);	
+			}
+			100%{
+				scale: 1;	
+			}				
+		}
+		@keyframes textt{
+			from{
+				transform: translateX(-100%);
+			}
+			to{
+				transform: translateX(0);
+			}
+		}
+
+		#text{
+			position: absolute;
+			z-index: 1;
+			color: white;
+			backdrop-filter: blur(10px);
+			width: 30%;
+			height: 100vh;
+			padding: 3vw;
+			animation: textt 1s;
+		}
+	</style>
+</head>
+<body>
+	<section style="width:100%;height: 100vh;position: relative;overflow: hidden;background-color: black;">
+		<div style="display:flex;justify-content: space-between;width: 30%;position: absolute;bottom: 10%;z-index: 100;">
+			<div style="width:5vw;height: 5vw;margin: 1vw;border-radius: 50%;background-color: lightgray;background-image: url('images/tdp.jfif');background-size: cover;" onclick="change(id=1)"></div>
+			<div style="width:5vw;height: 5vw;margin: 1vw;border-radius: 50%;background-color: lightgray;background-image: url('images/zdp.jfif');background-size: cover;" onclick="change(id=2)"></div>
+			<div style="width:5vw;height: 5vw;margin: 1vw;border-radius: 50%;background-color: lightgray;background-image: url('images/idp.jfif');background-size: cover;" onclick="change(id=3)"></div>
+		</div>
+		<div style="position: absolute;width: 100%;height: 100vh;background-color: black;">
+			<div id="tanjiro" style="display:none;">
+			<video autoplay muted style="animation:fadee 1s">
+				<source src="images/1.mp4" type="video/mp4" >
+			</video>
+			<div id="slide" style="display:none;">
+			<img src="images/back1.jpeg" style="filter: blur(10px);animation:float 10s 2s infinite;">
+			<img src="images/fore1.png" style="animation: fore1 .2s , float 10s 1s infinite;">
+			<div id="text">
+				<h1>竈門 炭次郎</h1>
+				<h5>Tanjiro kamado</h5>
+				<p>Tanjiro Kamado is a fictional character and the protagonist of Koyoharu Gotouge's manga Demon Slayer: Kimetsu no Yaiba.</p>
+			</div>
+			</div>
+			</div>
+
+			<div id="denzu" style="display: none;">
+			<video autoplay muted style="animation:fadee 1s">
+				<source src="images/2.mp4" type="video/mp4" >
+			</video>
+			<div id="dslide" style="display:none;">
+			<img src="images/back2.jpeg" style="filter: blur(5px) brightness(.7);">
+			<img src="images/fore2.png" style="top: -20%;width: 55vw;left: 20%;animation: float 10s 1s infinite,up .2s ;">
+			<img src="images/f1.png" style="filter: blur(2px);scale: 2;animation: float 10s 1s infinite;">
+			<div id="text">
+				<h1>雷の呼吸</h1>
+				<h5>Zenitsu Agatsuma</h5>
+				<p>Zenitsu has always had enhanced hearing, being able to hear what others can't. He is able to hear a faint difference that is normally indetectable to humans in the sound of a moving human and a moving demon. His hearing gives him extra awareness for danger.</p>
+			</div>
+			</div>
+			</div>
+
+			<div id="inosuke" style="display:none;">
+			<video autoplay muted style="animation:fadee 1s">
+				<source src="images/3.mp4" type="video/mp4" >
+			</video>
+			<div id="islide" style="display:none;">
+			<img src="images/back3.png" style="animation: scalback 22s infinite;">
+			<img src="images/p1.png" style="animation: scalback 20s infinite;">
+			<img src="images/p2.png" style="animation: scalback 18s infinite;">
+			<div id="text">
+				<h1>嘴平 伊之助</h1>
+				<h5>Inosuke Hashibira</h5>
+				<p>nosuke Hashibira ( 嘴 はし 平 びら 伊 い 之 の 助 すけ , Hashibira Inosuke?) is one of the main characters of Demon Slayer: Kimetsu no Yaiba and along with Zenitsu Agatsuma, a traveling companion of Tanjiro Kamado and Nezuko Kamado.</p>
+			</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		
+		function change(id){
+			count  = id
+		if (count == 1) {
+			document.getElementById('tanjiro').classList.add('show')
+			document.getElementById('denzu').classList.remove('show')
+			document.getElementById('dslide').classList.remove('show')
+			document.getElementById('inosuke').classList.remove('show')
+			document.getElementById('islide').classList.remove('show')
+
+		setTimeout(()=>{
+			document.getElementById('slide').classList.add('show')
+		},2380)
+		}
+		else if (count == 2) {
+			document.getElementById('denzu').classList.add('show')
+			document.getElementById('tanjiro').classList.remove('show')
+			document.getElementById('slide').classList.remove('show')
+			document.getElementById('inosuke').classList.remove('show')
+			document.getElementById('islide').classList.remove('show')
+		setTimeout(()=>{
+			document.getElementById('dslide').classList.add('show')
+		
+		},9000)
+		}
+		else if (count == 3) {
+		document.getElementById('inosuke').classList.add('show')
+		document.getElementById('denzu').classList.remove('show')
+			document.getElementById('dslide').classList.remove('show')
+			document.getElementById('tanjiro').classList.remove('show')
+			document.getElementById('slide').classList.remove('show')
+		setTimeout(()=>{
+			document.getElementById('islide').classList.add('show')
+		
+		},4900)
+		}
+		}
+		change(id=1)
+	</script>
+</body>
+</html>
